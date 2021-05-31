@@ -3,7 +3,7 @@ FROM node:16-slim
 ENV HUSKY=0
 
 RUN apt-get update && \
-    apt-get install -y wget gnupg && \
+    apt-get install -y wget gnupg vim less && \
     wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
     sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' && \
     apt-get update && \
@@ -15,7 +15,7 @@ RUN  mkdir -p /usr/src && \
     groupadd -r nodeuser && \
     useradd -r -g nodeuser -G audio,video nodeuser && \
     mkdir -p /home/nodeuser/Downloads && \
-    chown nodeuser:nodeuser -R /usr/src && \
+    chown -R nodeuser:nodeuser /usr/src && \
     chown -R nodeuser:nodeuser /home/nodeuser && \
     chown -R nodeuser:nodeuser /usr/src
 
@@ -24,7 +24,3 @@ COPY . /usr/src/
 WORKDIR /usr/src/
 
 RUN npm ci
-
-EXPOSE 3000
-
-CMD npm run start
