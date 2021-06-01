@@ -21,12 +21,15 @@ app.use(cors()); // enable cors
 // serve the documentation
 app.use('/', express.static(path.join(__dirname, '..', 'public')));
 app.use('/docs', express.static(path.join(__dirname, '..', 'doc')));
+
 // Secure our Express server with helmet
 app.use(helmet());
+
 // Add a health check, that it could be monitored
 app.get('/.well-known/health', (req, res) =>
   res.status(200).json({ status: 'healthy' }),
 );
+
 // Enable rate-limiting
 app.use(rateLimit());
 

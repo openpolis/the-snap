@@ -1,7 +1,7 @@
 define({ "api": [
   {
     "type": "get",
-    "url": "/pdf",
+    "url": "/api/pdf",
     "title": "obtain a pdf of a page",
     "name": "TakeScreenshot",
     "group": "PDF",
@@ -71,7 +71,7 @@ define({ "api": [
   },
   {
     "type": "get",
-    "url": "/shot",
+    "url": "/api/shot",
     "title": "get a screenshot of a page",
     "name": "TakeScreenshot",
     "group": "Screenshots",

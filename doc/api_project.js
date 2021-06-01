@@ -1,7 +1,7 @@
 define({
   "name": "The Snap Documentation",
   "title": "The Snap Documentation",
-  "url": "https://the-snap.herokuapp.com/api",
+  "url": "https://staging.snap.openpolis.io/api",
   "description": "A simple service to create screenshots and PDFs from unauthenticated accessible websites",
   "version": "1.0.0",
   "sampleUrl": false,

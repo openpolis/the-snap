@@ -1,0 +1,31 @@
+version: "3.5"
+
+services:
+
+  snap:
+    restart: always
+    container_name: snap
+    image: openpolis/snap:latest
+    build: .
+    init: true
+    expose:
+      - 3000
+    command: npm run start
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=gw"
+      - "traefik.http.routers.snap.rule=Host(`${DOMAIN}`)"
+      - "traefic.http.routers.snap.entrypoint=websecure"
+      - "traefik.http.routers.snap.tls.certresolver=${CERT_RESOLVER}"
+    networks:
+      - default
+      - gw
+
+networks:
+  default:
+    external: false
+    name: snap
+  gw:
+    external: true
+
+

@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const logger = require('pino')();
 const Ajv = require('ajv').default;
 
 const ajv = new Ajv({ allErrors: true, async: true });
@@ -30,6 +31,7 @@ router.get('/shot', async (req, res) => {
   }
   const { url, selector } = req.query;
   let decodedSelector = selector ? decodeURIComponent(selector) : false;
+  logger.info("request to /shot received with url: " + url);
   const buffer = decodedSelector
     ? await shot({ url, selector: decodedSelector })
     : await shot({ url });

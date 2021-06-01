@@ -1,18 +1,25 @@
 const puppeteer = require('puppeteer');
+const logger = require('pino')();
 
 function shot({ url, selector = false, format = 'png' }) {
   return new Promise((resolve, reject) => {
     (async () => {
       try {
         const browser = await puppeteer.launch({
-          args: ['--no-sandbox'],
+          args: [
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-dev-shm-usage',
+            '--disable-gpu'
+          ],
         });
 
         const page = await browser.newPage();
 
         await page.goto(url, {
-          waitUntil: ['load', 'networkidle0', 'domcontentloaded'],
+          waitUntil: ['networkidle0'],
         });
+        logger.info(url + " was loaded");
 
         await page.waitForTimeout(1000);
 
@@ -30,8 +37,8 @@ function shot({ url, selector = false, format = 'png' }) {
             fullPage: true,
             type: format,
           });
-        }
 
+        }
         await browser.close();
 
         resolve(buffer);
@@ -47,7 +54,12 @@ function pdf({ url, width = false, height = false }) {
     (async () => {
       try {
         const browser = await puppeteer.launch({
-          args: ['--no-sandbox'],
+          args: [
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-dev-shm-usage',
+            '--disable-gpu'
+          ],
         });
 
         const page = await browser.newPage();
