@@ -14,7 +14,7 @@
             "type": "String",
             "optional": false,
             "field": "url",
-            "description": "<p>a url to be looked up</p>"
+            "description": "<p>a url to be looked up (user <a href=\"https://www.wikiwand.com/en/Percent-encoding\">url-encoding</a></p>"
           },
           {
             "group": "Parameter",
@@ -67,7 +67,12 @@
       }
     },
     "filename": "src/api.js",
-    "groupTitle": "PDF"
+    "groupTitle": "PDF",
+    "sampleRequest": [
+      {
+        "url": "https://snap.openpolis.io/api/pdf"
+      }
+    ]
   },
   {
     "type": "get",
@@ -84,7 +89,7 @@
             "type": "String",
             "optional": false,
             "field": "url",
-            "description": "<p>a url to be looked up</p>"
+            "description": "<p>a url to be looked up (user <a href=\"https://www.wikiwand.com/en/Percent-encoding\">url-encoding</a> to pass querystring parameters)</p>"
           },
           {
             "group": "Parameter",
@@ -123,6 +128,11 @@
       }
     },
     "filename": "src/api.js",
-    "groupTitle": "Screenshots"
+    "groupTitle": "Screenshots",
+    "sampleRequest": [
+      {
+        "url": "https://snap.openpolis.io/api/shot"
+      }
+    ]
   }
 ]

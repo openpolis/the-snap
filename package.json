@@ -26,7 +26,7 @@
   "apidoc": {
     "name": "The Snap Documentation",
     "title": "The Snap Documentation",
-    "url": "https://the-snap.herokuapp.com/api",
+    "url": "https://snap.openpolis.io/api",
     "description": "A simple service to create screenshots and PDFs from unauthenticated accessible websites"
   },
   "homepage": "https://github.com/chrkaatz/the-snap#readme",

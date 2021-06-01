@@ -1,7 +1,7 @@
 define({ "api": [
   {
     "type": "get",
-    "url": "/api/pdf",
+    "url": "/pdf",
     "title": "obtain a pdf of a page",
     "name": "TakeScreenshot",
     "group": "PDF",
@@ -14,7 +14,7 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "url",
-            "description": "<p>a url to be looked up</p>"
+            "description": "<p>a url to be looked up (user <a href=\"https://www.wikiwand.com/en/Percent-encoding\">url-encoding</a></p>"
           },
           {
             "group": "Parameter",
@@ -67,11 +67,16 @@ define({ "api": [
       }
     },
     "filename": "src/api.js",
-    "groupTitle": "PDF"
+    "groupTitle": "PDF",
+    "sampleRequest": [
+      {
+        "url": "https://snap.openpolis.io/api/pdf"
+      }
+    ]
   },
   {
     "type": "get",
-    "url": "/api/shot",
+    "url": "/shot",
     "title": "get a screenshot of a page",
     "name": "TakeScreenshot",
     "group": "Screenshots",
@@ -84,7 +89,7 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "url",
-            "description": "<p>a url to be looked up</p>"
+            "description": "<p>a url to be looked up (user <a href=\"https://www.wikiwand.com/en/Percent-encoding\">url-encoding</a> to pass querystring parameters)</p>"
           },
           {
             "group": "Parameter",
@@ -123,6 +128,11 @@ define({ "api": [
       }
     },
     "filename": "src/api.js",
-    "groupTitle": "Screenshots"
+    "groupTitle": "Screenshots",
+    "sampleRequest": [
+      {
+        "url": "https://snap.openpolis.io/api/shot"
+      }
+    ]
   }
 ] });
