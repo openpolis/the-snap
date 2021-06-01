@@ -1,3 +1,9 @@
 {
-    "sampleUrl": "https://snap.openpolis.io/api"
+    "name": "SNAP API documentation",
+    "version": "1.0.0",
+    "description": "API for the Snap @ openpolis",
+    "sampleUrl": "https://snap.openpolis.io/api",
+    "template": {
+        "forceLanguage": "en"
+    }
 }

@@ -54,7 +54,7 @@ router.get('/shot', async (req, res) => {
  * @apiGroup PDF
  * @apiVersion 1.0.0
  *
- * @apiParam {String} url a url to be looked up (user [url-encoding](https://www.wikiwand.com/en/Percent-encoding)
+ * @apiParam {String} url a url to be looked up (user [url-encoding](https://www.wikiwand.com/en/Percent-encoding) to pass querystring parameters)
  * @apiParam {Number} [w] width of the viewport
  * @apiParam {Number} [h] height of the viewport
  * @apiParam {String} [d] device to use for the viewport - overwrites other v/h parameters

@@ -14,7 +14,7 @@
             "type": "String",
             "optional": false,
             "field": "url",
-            "description": "<p>a url to be looked up (user <a href=\"https://www.wikiwand.com/en/Percent-encoding\">url-encoding</a></p>"
+            "description": "<p>a url to be looked up (user <a href=\"https://www.wikiwand.com/en/Percent-encoding\">url-encoding</a> to pass querystring parameters)</p>"
           },
           {
             "group": "Parameter",
