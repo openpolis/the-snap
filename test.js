@@ -7,7 +7,7 @@ const logger = require('pino')();
         '--no-sandbox',
         '--disable-setuid-sandbox',
         '--disable-dev-shm-usage',
-			  '--disable-gpu'
+		'--disable-gpu'
     ]
   });
   const browserVersion = await browser.version()
