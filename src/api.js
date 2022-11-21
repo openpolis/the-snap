@@ -18,6 +18,7 @@ const { shot, pdf } = require('./capture.js');
  * 
  * @apiParam {String} url a url to be looked up (user [url-encoding](https://www.wikiwand.com/en/Percent-encoding) to pass querystring parameters)
  * @apiParam {String} [selector] take a screenshot of a given selector - encoded URI component
+ * @apiParam {Number} [timeout] set a timeout, in ms; defaults to 1000
  * 
  * @apiSuccess {File} image the generated screenshot
  * @apiError {Object} Errors returned errors
@@ -29,12 +30,13 @@ router.get('/shot', async (req, res) => {
     const errors = await parseAJVErrors(validate.errors);
     return res.status(400).json({ errors });
   }
-  const { url, selector } = req.query;
+  const { url, selector, timeout } = req.query;
   let decodedSelector = selector ? decodeURIComponent(selector) : false;
-  logger.info("request to /shot received with url: " + url);
+  let decodedTimeout = timeout ? parseInt(timeout) : 1000;
+  logger.info("request to /shot received with url: " + url + ", timeout: " + decodedTimeout + "ms, selector: " + decodedSelector);
   const buffer = decodedSelector
-    ? await shot({ url, selector: decodedSelector })
-    : await shot({ url });
+    ? await shot({ url, selector: decodedSelector, timeout: decodedTimeout })
+    : await shot({ url, timeout: decodedTimeout });
   if (buffer) {
     const img = Buffer.from(buffer, 'base64');
     res.writeHead(200, {

@@ -17,7 +17,7 @@ services:
       - "traefik.http.routers.snap.rule=Host(`${DOMAIN}`)"
       - "traefic.http.routers.snap.entrypoint=websecure"
       - "traefik.http.routers.snap.tls.certresolver=${CERT_RESOLVER}"
-      - "traefik.http.middlewares.snap-ipwhitelist.ipwhitelist.sourcerange=146.185.130.152,138.68.120.122,78.159.101.157,87.27.49.250"
+      - "traefik.http.middlewares.snap-ipwhitelist.ipwhitelist.sourcerange=146.185.130.152,138.68.120.122,78.159.101.157,87.27.49.250,138.197.178.67"
       - "traefik.http.routers.snap.middlewares=snap-ipwhitelist@docker"      
     networks:
       - default

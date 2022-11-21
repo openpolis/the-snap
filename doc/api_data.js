@@ -97,6 +97,13 @@ define({ "api": [
             "optional": true,
             "field": "selector",
             "description": "<p>take a screenshot of a given selector - encoded URI component</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": true,
+            "field": "timeout",
+            "description": "<p>set a timeout, in ms; defaults to 1000</p>"
           }
         ]
       }

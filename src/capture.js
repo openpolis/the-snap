@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer');
 const logger = require('pino')();
 
-function shot({ url, selector = false, format = 'png' }) {
+function shot({ url, selector = false, timeout, format = 'png' }) {
   return new Promise((resolve, reject) => {
     (async () => {
       try {
@@ -20,8 +20,9 @@ function shot({ url, selector = false, format = 'png' }) {
           waitUntil: ['networkidle0'],
         });
         logger.info(url + " was loaded");
-
-        await page.waitForTimeout(1000);
+        
+        await page.waitForTimeout(timeout);
+        logger.info("timeout was set to: " + timeout + "ms");
 
         await page.emulateMediaType('screen');
 
